@@ -34,7 +34,6 @@ export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT
         
           useEffect(()=>{
         fetchMovies(`${API_ENDPOINT}&s=${urlParams}`)
-        // &s= :دي بتاعه البحث
           },[urlParams])
         
 
