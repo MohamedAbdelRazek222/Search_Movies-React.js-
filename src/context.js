@@ -2,13 +2,11 @@ import React, { useState, useContext, useEffect } from 'react'
 // make sure to use https
 export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`
 const AppContext = React.createContext()
-console.log({API_ENDPOINT}) //"https://www.omdbapi.com/?apikey=f2f29339"
 const AppProvider = ({ children }) => {
   const [isLoading,setIsLoading]=useState(true)
   const [error,setError]=useState({show:false,msg:''})
   const [movies,setMovies]=useState([])
-  const [query,setQuery]=useState('batman') //دي المسؤوله عن  البحث
-  
+  const [query,setQuery]=useState('batman')
 
 
 const fetchMovies=async(url)=>{
@@ -35,7 +33,6 @@ console.log(error)
 
   useEffect(()=>{
 fetchMovies(`${API_ENDPOINT}&s=${query}`)
-// &s= :دي بتاعه البحث
   },[query])
 
   return <AppContext.Provider value={{ 
